@@ -1,4 +1,3 @@
-#arepl_filter = ['Node', 'SinglyLinkedList']
 
 class Node:
 

@@ -37,7 +37,6 @@ class Stack:
                 print(f'Found: { len(self.stack) - i}')
 
 
-# solve valid parentheses
 
 stk = Stack()
 stk.push(1)
