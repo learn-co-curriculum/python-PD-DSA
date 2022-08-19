@@ -14,55 +14,20 @@ class SinglyLinkedList:
 
     def append(self, value):
 
-        if self.head == None:
-            self.head = Node(value)
-            return
-
-        last_node = self.head
-
-        while last_node.next:
-            last_node = last_node.next
-
-        last_node.next = Node(value)
+        pass
 
     def delete_tail(self):
-        if not self.head:
-            return None
-
-        if not self.head.next:
-            self.head = None
-            return
-        curr = self.head
-        prev = None
-        while curr.next:
-            prev = curr
-            curr = curr.next
-
-        prev.next = None
-
+        pass
 
     def prepend(self, value):
 
-        new_node = Node(value)
-        new_node.next = self.head
-        self.head = new_node
-
+        pass
 
     def delete_head(self):
-        if self.head:
-            self.head = self.head.next
-
+        pass
 
     def search(self, value):
-        curr = self.head
-
-        while curr:
-            if curr.data == value:
-                return f'Found: {curr.data}'
-            curr = curr.next
-
-        return None
-
+        pass
 
     def __str__(self):
         print_head = self.head
@@ -75,22 +40,22 @@ class SinglyLinkedList:
         return output_string
 
 # Instantiate SinglyLinkedList object
-linked_list = SinglyLinkedList()
+# linked_list = SinglyLinkedList()
 
-print("Linked List")
-linked_list.append(2)
-linked_list.append(3)
-linked_list.append(4)
-linked_list.prepend(1)
+# print("Linked List")
+# linked_list.append(2)
+# linked_list.append(3)
+# linked_list.append(4)
+# linked_list.prepend(1)
 # ->  1 -> 2 -> 3 -> 4
-print(linked_list)
+# print(linked_list)
 
-linked_list.delete_tail()
-linked_list.delete_head()
-print("After delete ")
+# linked_list.delete_tail()
+# linked_list.delete_head()
+# print("After delete ")
 # ->  2 -> 3
-print(linked_list)
+# print(linked_list)
 
-print('Search')
-print(linked_list.search(3))
+# print('Search')
+# print(linked_list.search(3))
 # Found: 3
