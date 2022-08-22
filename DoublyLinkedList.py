@@ -1,3 +1,4 @@
+
 class Node:
 
     def __init__(self, value):
@@ -20,29 +21,51 @@ class DoublyLinkedList:
             self.head = new_node
             self.tail = new_node
         else:
-            new_node.prev = self.tail
             self.tail.next = new_node
+            new_node.prev = self.tail
             self.tail = new_node
 
 
     def delete_tail(self):
-        if not self.head:
-            return
+        if (self.head == None):
+            return None
+        
+        current_tail = self.tail
+        if self.head.next == None:
+            self.head = None
+            self.tail = None
+        else: 
+            self.tail = current_tail.prev
+            self.tail.next = None
+            current_tail.prev = None
+        
 
-        prev = self.tail.prev
-        self.tail = prev
 
 
     def prepend(self, value):
 
         new_node = Node(value)
-        new_node.next = self.head
-        self.head = new_node
+        if self.head == None:
+            self.head = new_node
+            self.tail = new_node
+        else:
+            self.head.prev = new_node
+            new_node.next = self.head
+            self.head = new_node
 
 
     def delete_head(self):
-        if self.head:
-            self.head = self.head.next
+        old_head = self.head
+        if self.head == None:
+            return None
+        elif self.head.next == None:
+            self.head = None
+            self.tail = None
+        else: 
+            self.head = old_head.next
+            self.head.prev = None
+            old_head.next = None
+
 
 
     def search(self, value):
@@ -74,17 +97,17 @@ linked_list.append(2)
 linked_list.append(3)
 linked_list.append(4)
 linked_list.prepend(1)
-
 # ->  1 -> 2 -> 3 -> 4
 print(linked_list)
 
 linked_list.delete_tail()
-linked_list.delete_head()
-linked_list.delete_head()
+
+
 
 print("After delete ")
 # ->  2 -> 3
 print(linked_list)
+
 
 print('Search')
 print(linked_list.search(3))
